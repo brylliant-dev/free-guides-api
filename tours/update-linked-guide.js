@@ -5,7 +5,7 @@ const toursCollection = process.env.TOURS_COLLECTION_ID;
 const categoryCollection = process.env.CATEGORIES_COLLECTION_ID;
 const FieldValue = require('firebase-admin').firestore.FieldValue;
 const path = require('path');
-let fs_dir = path.join(__dirname,'../../');
+let fs_dir = path.join(__dirname, '../../');
 const init = require(fs_dir + 'fs-init.js');
 
 let webf_body = new Object();
@@ -41,92 +41,92 @@ let fs_arr_geopoint = new Array();
 const db = init.fs.firestore();
 
 //Fetch webflow categories data
-  const options = {
-      method: 'GET',
-      url: 'https://api.webflow.com/collections/'+ categoryCollection +'/items',
-      qs: {offset: '0', limit: '100'},
-      headers: {'Accept-Version': '1.0.0', Authorization: 'Bearer ' + webflowAPIKey},
-      json: true
-      };
-      
-      webflow_request(options, function (error, response, body) {
-      
-      if (error) throw new Error(error);
-  
-      try {
-        for (let index = 0; index < body.items.length; index++) {
-          webf_arr_category.push([body.items[index]._id, body.items[index].name]);
-      }
-      } catch (error) {
-        
-      }
-    
+const options = {
+  method: 'GET',
+  url: 'https://api.webflow.com/collections/' + categoryCollection + '/items',
+  qs: { offset: '0', limit: '100' },
+  headers: { 'Accept-Version': '1.0.0', Authorization: 'Bearer ' + webflowAPIKey },
+  json: true
+};
 
-      });   
+webflow_request(options, function (error, response, body) {
+
+  if (error) throw new Error(error);
+
+  try {
+    for (let index = 0; index < body.items.length; index++) {
+      webf_arr_category.push([body.items[index]._id, body.items[index].name]);
+    }
+  } catch (error) {
+
+  }
+
+
+});
 
 async function patch(
   tourId,
-  guideId){
+  guideId) {
 
   //Call category fetch
-setTimeout(function() {
+  setTimeout(function () {
 
-  //convert to array
-  //fs_arr_paid_data = paiddata;
-  //fs_arr_isPaid = ispaid;
-  // fs_arr_stops = stops;
-  // fs_arr_tags = tags;
-  // fs_arr_superexp = superexp;
-  // fs_arr_cover_img = coverimages;
-  // fs_arr_id = tours;
-  // fs_arr_name = name;
-  // fs_arr_active = active;
-  // fs_arr_desc = desc;
-  // fs_arr_lang = lang;
-  // fs_arr_approval = approval;
-  // fs_arr_booked = booked;
-  // fs_arr_category = category;
-  // fs_arr_deleted = deleted;
-  // fs_arr_duration = duration;
-  // fs_arr_guide = guide;
-  // fs_arr_guide_pic = guide_pic
-  // fs_arr_rank = rank;
-  // fs_arr_rating = rating;
-  // fs_arr_toursRun = toursRun;
- // fs_arr_likes = likes;
-  //fs_arr_owner = owner;
+    //convert to array
+    //fs_arr_paid_data = paiddata;
+    //fs_arr_isPaid = ispaid;
+    // fs_arr_stops = stops;
+    // fs_arr_tags = tags;
+    // fs_arr_superexp = superexp;
+    // fs_arr_cover_img = coverimages;
+    // fs_arr_id = tours;
+    // fs_arr_name = name;
+    // fs_arr_active = active;
+    // fs_arr_desc = desc;
+    // fs_arr_lang = lang;
+    // fs_arr_approval = approval;
+    // fs_arr_booked = booked;
+    // fs_arr_category = category;
+    // fs_arr_deleted = deleted;
+    // fs_arr_duration = duration;
+    // fs_arr_guide = guide;
+    // fs_arr_guide_pic = guide_pic
+    // fs_arr_rank = rank;
+    // fs_arr_rating = rating;
+    // fs_arr_toursRun = toursRun;
+    // fs_arr_likes = likes;
+    //fs_arr_owner = owner;
 
 
-                 //  //CREATE Webflow Items
-                    const options = {
-                      method: 'PATCH',
-                      url: 'https://api.webflow.com/collections/'+ toursCollection +'/items/' + tourId,
-                      qs: {live: 'true'},
-                      headers: {
-                        'Accept-Version': '1.0.0',
-                        Authorization: 'Bearer '+ webflowAPIKey,
-                        'content-type': 'application/json'
-                      },
-                      body: {
-                        fields: {
-                          linkedguide: guideId,
-                          _archived: false,
-                          _draft: false
-                        }
-                      },
-                      json: true
-                    };
-                    
-                    webflow_request(options, async function (error, response, body) {
-                      if (error) throw new Error(error);
-                      //console.log(body);
-                      console.log(body);
+    //  //CREATE Webflow Items
+    const options = {
+      method: 'PATCH',
+      url: 'https://api.webflow.com/collections/' + toursCollection + '/items/' + tourId,
+      qs: { live: 'true' },
+      headers: {
+        'Accept-Version': '1.0.0',
+        Authorization: 'Bearer ' + webflowAPIKey,
+        'content-type': 'application/json'
+      },
+      body: {
+        fields: {
+          linkedguide: guideId,
+          _archived: false,
+          _draft: false
+        }
+      },
+      json: true
+    };
 
-                        //webf_guides(body.owner, body._id);
-                    });
-            
-     
+    webflow_request(options, async function (error, response, body) {
+      if (error) throw new Error(error);
+      //console.log(body);
+      console.log(body);
+
+      //webf_guides(body.owner, body._id);
     });
+
+
+  });
 
 }
 

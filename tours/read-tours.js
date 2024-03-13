@@ -5,7 +5,7 @@ const categoryCollection = process.env.CATEGORIES_COLLECTION_ID;
 const fs_tourscollection = process.env.TOURS_COLLECTION_NAME;
 const webflow_request = require('request');
 const path = require('path');
-let fs_dir = path.join(__dirname,'../../');
+let fs_dir = path.join(__dirname, '../../');
 const init = require(fs_dir + 'fs-init.js');
 const webflow_create_tours = require("../tours/create-tours.js");
 let fs_arr_id = new Array();
@@ -41,35 +41,35 @@ let webf_arr_id = new Array();
 let fs_arr_questionReply = new Array();
 let fs_arr_geopoint = new Array();
 
-async function read(webflowId){
+async function read(webflowId) {
 
-return new Promise((resolve) => {
-const db = init.fs.firestore();
+  return new Promise((resolve) => {
+    const db = init.fs.firestore();
 
-//Fetch webflow categories data
-  const options = {
+    //Fetch webflow categories data
+    const options = {
       method: 'GET',
-      url: 'https://api.webflow.com/collections/'+ toursCollection +'/items/' + webflowId,
-      qs: {offset: '0', limit: '100'},
-      headers: {'Accept-Version': '1.0.0', Authorization: 'Bearer ' + webflowAPIKey},
+      url: 'https://api.webflow.com/collections/' + toursCollection + '/items/' + webflowId,
+      qs: { offset: '0', limit: '100' },
+      headers: { 'Accept-Version': '1.0.0', Authorization: 'Bearer ' + webflowAPIKey },
       json: true
-      };
+    };
 
-      webflow_request(options, async function (error, response, body) {
-                                          
-          if (error) throw new Error(error);
+    webflow_request(options, async function (error, response, body) {
 
-          if (body.total !== 0){
-            console.log('Tours exist in webflow');
-          }
-          else {
-            console.log('Tours does not exist in webflow. Creating...');
+      if (error) throw new Error(error);
 
-          }
+      if (body.total !== 0) {
+        console.log('Tours exist in webflow');
+      }
+      else {
+        console.log('Tours does not exist in webflow. Creating...');
 
-      });
+      }
 
-}); 
+    });
+
+  });
 
 }
 
