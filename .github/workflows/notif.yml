@@ -1,0 +1,38 @@
+name: Notifications
+
+on:
+  issues:
+    types: [assigned, opened, closed]
+  pull_request:
+    types: [opened, closed, reopened]
+  pull_request_review:
+    types: [submitted]
+  pull_request_review_comment:
+    types: [created, edited, deleted]
+  pull_request_target:
+    types:
+      [
+        assigned,
+        unassigned,
+        labeled,
+        unlabeled,
+        opened,
+        closed,
+        reopened,
+        synchronize,
+        ready_for_review,
+        locked,
+        unlocked,
+        review_requested,
+        review_request_removed,
+      ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      # Add your desired steps here
