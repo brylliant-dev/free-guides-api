@@ -15,9 +15,9 @@ let webf_arr_tours = new Array();
 //     headers: {'Accept-Version': '1.0.0', Authorization: 'Bearer ' + webflowAPIKey},
 //     json: true
 //     };
-    
+
 //     webflow_request(options, function (error, response, body) {
-    
+
 //     if (error) throw new Error(error);
 
 //       for (let index = 0; index < body.items.length; index++) {
@@ -26,69 +26,69 @@ let webf_arr_tours = new Array();
 
 //     });   
 
-async function remove(tours){
+async function remove(tours) {
 
   webf_arr_tours = tours;
 
-    //Check Tours
-    // let delete_tour = '';
-    // for (let index = 0; index < webf_arr_tours.length; index++) {
-    //    if (webf_arr_tours[index][1] === tours){
-    //         delete_tour = webf_arr_tours[index][0];
-    //    }
-    // }
-    //End Check Tours
+  //Check Tours
+  // let delete_tour = '';
+  // for (let index = 0; index < webf_arr_tours.length; index++) {
+  //    if (webf_arr_tours[index][1] === tours){
+  //         delete_tour = webf_arr_tours[index][0];
+  //    }
+  // }
+  //End Check Tours
 
   for (let x = 0; x < webf_arr_tours.length; x++) {
-    
+
     setTimeout(() => {
-      
-    //Fetch webflow data
-    const options = {
-      method: 'DELETE',
-      url: 'https://api.webflow.com/collections/'+ toursCollection +'/items/' + webf_arr_tours[x],
-      qs: {live: 'false'},
-    headers: {'Accept-Version': '1.0.0', Authorization: 'Bearer ' + webflowAPIKey},
-    json: true
-    };
-    
-    webflow_request(options, async function (error, response, body) {
-     
-      if (error) throw new Error(error);
 
-      console.log('Deleting Doc ID: ' +  webf_arr_tours[x]);
-
-       //PUBLISH
-       const options = {
-        method: 'POST',
-        url: 'https://api.webflow.com/sites/'+ siteID +'/publish',
-        headers: {
-        'Accept-Version': '1.0.0',
-        Authorization: 'Bearer ' + webflowAPIKey,
-        'content-type': 'application/json'
-        },
-        body: {domains: [''+websiteDomains+'']},
+      //Fetch webflow data
+      const options = {
+        method: 'DELETE',
+        url: 'https://api.webflow.com/collections/' + toursCollection + '/items/' + webf_arr_tours[x],
+        qs: { live: 'false' },
+        headers: { 'Accept-Version': '1.0.0', Authorization: 'Bearer ' + webflowAPIKey },
         json: true
-        };
+      };
 
-       
-        webflow_request(options, function (error, response, body) {
+      webflow_request(options, async function (error, response, body) {
+
         if (error) throw new Error(error);
 
-            console.log(body);
-            
+        console.log('Deleting Doc ID: ' + webf_arr_tours[x]);
+
+        //PUBLISH
+        const options = {
+          method: 'POST',
+          url: 'https://api.webflow.com/sites/' + siteID + '/publish',
+          headers: {
+            'Accept-Version': '1.0.0',
+            Authorization: 'Bearer ' + webflowAPIKey,
+            'content-type': 'application/json'
+          },
+          body: { domains: ['' + websiteDomains + ''] },
+          json: true
+        };
+
+
+        webflow_request(options, function (error, response, body) {
+          if (error) throw new Error(error);
+
+          console.log(body);
+
         });
         //END PUBLISH
-       
 
-    });
 
-  }, 200 * x);
+      });
 
-      
+    }, 200 * x);
+
+
   }
 
-    
+
 }
 
 module.exports = { remove };

@@ -1,159 +1,170 @@
 /* For Printing Design */
-@page {  
-    size: auto;  
-    margin: 0mm;  
-    background-color: #e2edf7 !important; 
-    }
-    
-    /*For iOS Safari Compatibility */
-    @supports (-webkit-backdrop-filter: none) {
-        @page {  
-        size: 1440px;  
-        margin: 0mm;  
-        background-color: #e2edf7 !important; 
-      }
-    }
-    
-      .pagebreak { 
-        clear: both !important;
-        page-break-before: always !important;
-        break-after: page !important;
-      } /* page-break-after works, as well */
-    
-    
-    
-    
-    @media print {
-        .w-richtext figure.w-richtext-align-normal:nth-of-type(n+2) {
-          padding-top: 8em !important;
-            }
-          .resource-rich-text figure:nth-child(0) { 
-          clear: both !important;
-                break-after: page !important;
-          /*page-break-before: always !important;*/
-                padding-top: 18em !important;
-        } /* page-break-after works, as well */
-        
-        .resource-rich-text figure:nth-child(1) { 
-          clear: both !important;
-                page-break-before: always !important;
-                padding-top: 18em !important;
-        } /* page-break-after works, as well */
-    
-        .padding-print-wrapper {
-          clear: both !important;
-          page-break-before: always !important;
-          /*break-after: page !important;*/
-                padding-top: 8em !important;
-            }
-        
-       .timeline-wrapper {
-          clear: both !important;
-          /*page-break-before: always !important;*/
-          /*break-after: page !important;*/
-            }
-        .print-break-before {
-          clear: both !important;
-              page-break-before: always !important;
-            }
-        .print-break-after {
-          clear: both !important;
-              break-after: page !important;
-            }
-        .week-4-break {
-          clear: both !important;
-          page-break-before: always !important;
-          /*break-after: page !important;*/
-                padding-top: 8em !important;
-            }
-    
-           -webkit-transform: scale(0.85);  /* Saf3.1+, Chrome */
-           -moz-transform: scale(0.85);  /* FF3.5+ */
-           -ms-transform: scale(0.85);  /* IE9 */
-           -o-transform: scale(0.85);  /* Opera 10.5+ */
-           transform: scale(0.85);
-           margin: -50px -73px 0;  /* big hack to reposition the page top the top and left of the viewer control */
-            background-color: #FFFFFF !important;
-    
-    
-        body {
-          -webkit-print-color-adjust:exact !important;
-          print-color-adjust:exact !important;
-        }
-    
-        body, .main-wrapper, .page-wrapper, .section-proposal-takeways {
-          background-color: #FFFFFF !important;
-          print-color-adjust: exact;
-        }
-            .print-color-black{
-                 color: #00203a !important;
-            }
-    
-          .navbar {
-            position: static !important;
-            transform: translate3d(0px, 0em, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg) !important;
-                    background-color: #FFFFFF !important;
-          }
-          /*.faqs, .proposal-video, .submit-button-wrapper, .contact-form-wrapper, .sticky-bar, .gallery-proposal-wrapper, .section-proposal-takeways, .section-home-number, .section-home-testimonial, .section-proposal-about {
+@page {
+  size: auto;
+  margin: 0mm;
+  background-color: #e2edf7 !important;
+}
+
+/*For iOS Safari Compatibility */
+@supports (-webkit-backdrop-filter: none) {
+  @page {
+    size: 1440px;
+    margin: 0mm;
+    background-color: #e2edf7 !important;
+  }
+}
+
+.pagebreak {
+  clear: both !important;
+  page-break-before: always !important;
+  break-after: page !important;
+} /* page-break-after works, as well */
+
+@media print {
+  .w-richtext figure.w-richtext-align-normal:nth-of-type(n + 2) {
+    padding-top: 8em !important;
+  }
+  .resource-rich-text figure:nth-child(0) {
+    clear: both !important;
+    break-after: page !important;
+    /*page-break-before: always !important;*/
+    padding-top: 18em !important;
+  } /* page-break-after works, as well */
+
+  .resource-rich-text figure:nth-child(1) {
+    clear: both !important;
+    page-break-before: always !important;
+    padding-top: 18em !important;
+  } /* page-break-after works, as well */
+
+  .padding-print-wrapper {
+    clear: both !important;
+    page-break-before: always !important;
+    /*break-after: page !important;*/
+    padding-top: 8em !important;
+  }
+
+  .timeline-wrapper {
+    clear: both !important;
+    /*page-break-before: always !important;*/
+    /*break-after: page !important;*/
+  }
+  .print-break-before {
+    clear: both !important;
+    page-break-before: always !important;
+  }
+  .print-break-after {
+    clear: both !important;
+    break-after: page !important;
+  }
+  .week-4-break {
+    clear: both !important;
+    page-break-before: always !important;
+    /*break-after: page !important;*/
+    padding-top: 8em !important;
+  }
+
+  -webkit-transform: scale(0.85); /* Saf3.1+, Chrome */
+  -moz-transform: scale(0.85); /* FF3.5+ */
+  -ms-transform: scale(0.85); /* IE9 */
+  -o-transform: scale(0.85); /* Opera 10.5+ */
+  transform: scale(0.85);
+  margin: -50px -73px 0; /* big hack to reposition the page top the top and left of the viewer control */
+  background-color: #ffffff !important;
+
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body,
+  .main-wrapper,
+  .page-wrapper,
+  .section-proposal-takeways {
+    background-color: #ffffff !important;
+    print-color-adjust: exact;
+  }
+  .print-color-black {
+    color: #00203a !important;
+  }
+
+  .navbar {
+    position: static !important;
+    transform: translate3d(0px, 0em, 0px) scale3d(1, 1, 1) rotateX(0deg)
+      rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg) !important;
+    background-color: #ffffff !important;
+  }
+  /*.faqs, .proposal-video, .submit-button-wrapper, .contact-form-wrapper, .sticky-bar, .gallery-proposal-wrapper, .section-proposal-takeways, .section-home-number, .section-home-testimonial, .section-proposal-about {
           display: none !important;
           }*/
-                .services-wrapper{
-                 padding-top: 13em !important;
-          clear: both !important;
-          page-break-before: always !important;
-          
-                }
-                .section-proposal-takeways{
-           clear: both !important;
-           page-break-before: always !important;
-                
-          }
-                .investment-wrapper {
-           clear: both !important;
-           page-break-before: always !important;
-                }
-        
-         .faqs, .proposal-video, .submit-button-wrapper, .contact-form-wrapper, .sticky-bar, .section-home-number, .section-home-testimonial, .section-proposal-about, .gallery-proposal.margin-left-95, .online-card-cta {
-          display: none !important;
-          }
-          .padding-section-t208{
-            /*margin-top: -50px !important;*/
-          }
-          .investment-wrapper{
-          padding-top: 50px !important;
-          }
-          .proposal-print-wrapper {
-            /*height: 100vh !important;
+  .services-wrapper {
+    padding-top: 13em !important;
+    clear: both !important;
+    page-break-before: always !important;
+  }
+  .section-proposal-takeways {
+    clear: both !important;
+    page-break-before: always !important;
+  }
+  .investment-wrapper {
+    clear: both !important;
+    page-break-before: always !important;
+  }
+
+  .faqs,
+  .proposal-video,
+  .submit-button-wrapper,
+  .contact-form-wrapper,
+  .sticky-bar,
+  .section-home-number,
+  .section-home-testimonial,
+  .section-proposal-about,
+  .gallery-proposal.margin-left-95,
+  .online-card-cta {
+    display: none !important;
+  }
+  .padding-section-t208 {
+    /*margin-top: -50px !important;*/
+  }
+  .investment-wrapper {
+    padding-top: 50px !important;
+  }
+  .proposal-print-wrapper {
+    /*height: 100vh !important;
             padding-top: 50px !important;*/
-            /*padding-bottom: 90vh !important;*/
-          }
-    
-          .letter-wrapper, .timeline-rich-text, .proposal-form-text  {
-            max-width: 100% !important;
-          }
-          .resource-rich-text p {
-                    font-size: 1rem !important;
-              }
-          
-          .section-proposal-timeline {
-              overflow: hidden !important;
-          }
-    
-          html, body {
-            /*height: 99% !important;*/
-            margin: 0 !important; 
-            padding: 0 !important;
-            overflow: hidden;
-            /*width: 1440px !important;*/
-          }
-                /*For iOS Safari Compatibility */
-            @supports (-webkit-backdrop-filter: none) {
-            html, body {
-              /*height: 100% !important;*/
-              margin: 0 !important; 
-              padding: 0 !important;
-              overflow: hidden;
-              width: 1440px !important;
-            }
-                }
+    /*padding-bottom: 90vh !important;*/
+  }
+
+  .letter-wrapper,
+  .timeline-rich-text,
+  .proposal-form-text {
+    max-width: 100% !important;
+  }
+  .resource-rich-text p {
+    font-size: 1rem !important;
+  }
+
+  .section-proposal-timeline {
+    overflow: hidden !important;
+  }
+
+  html,
+  body {
+    /*height: 99% !important;*/
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden;
+    /*width: 1440px !important;*/
+  }
+  /*For iOS Safari Compatibility */
+  @supports (-webkit-backdrop-filter: none) {
+    html,
+    body {
+      /*height: 100% !important;*/
+      margin: 0 !important;
+      padding: 0 !important;
+      overflow: hidden;
+      width: 1440px !important;
     }
+  }
+}
