@@ -1,0 +1,66 @@
+ .placeOverviewContainer {
+    height:350px;
+    width:90%;
+    display: flex;
+    flex-direction:column;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top:15px;
+    margin-bottom:15px;
+}
+
+.placePhotosContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:stretch;
+    width:100%;
+    height:70px;
+}
+
+.placePhotoImg {
+    height:65px;
+    width:32%;
+    object-fit:cover;
+    border-radius: 5px;
+    }
+
+.placeName {
+    font-size:17px;
+    font-family:'Quicksand';
+    font-weight: 700;
+    color:  #1B2431;
+    }
+
+.ratingContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.ratingIcon {
+    height: 14px;
+    width: 14px;
+    object-fit: contain;
+    margin-top:3px;
+}
+
+.ratingText {
+    font-size:14px;
+    font-family:'Quicksand';
+    font-weight: 200;
+    color: #1B2431;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.fieldContainer {
+    display: flex;
+    flex-direction: row;
+    margin-top: -12px
+}
+
+.fieldIcon{
+    height:14px;
+    width:14px;
+    margin-top:5px;
+}
